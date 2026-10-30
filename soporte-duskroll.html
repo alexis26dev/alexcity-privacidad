@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duskroll · Soporte</title>
+<meta name="description" content="Soporte de Duskroll: Dados y Mazmorras, roguelike de dados por turnos para móvil.">
+<style>
+  :root { --tinta:#ece7dc; --papel:#14141f; --oro:#f0a032; --suave:#9a9384; --linea:#2e323b; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--papel); color:var(--tinta);
+         font:17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+  .caja { max-width:680px; margin:0 auto; padding:22px 22px 72px; }
+  nav { display:flex; gap:6px; justify-content:flex-end; margin-bottom:34px; }
+  nav button { font:inherit; font-size:14px; padding:5px 12px; border-radius:99px; cursor:pointer;
+               border:1px solid var(--linea); background:transparent; color:var(--suave); }
+  nav button[aria-current="true"] { background:var(--oro); border-color:var(--oro); color:#14141f; }
+  h1 { font-size:36px; line-height:1.1; margin:0 0 10px; }
+  .lema { color:var(--suave); margin:0 0 30px; }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.09em; color:var(--oro); margin:34px 0 10px; }
+  a { color:var(--oro); }
+  [data-lang] { display:none; }
+  [data-lang].on { display:block; }
+</style>
+</head>
+<body>
+<div class="caja">
+<nav>
+  <button data-b="es" aria-current="true">ES</button>
+  <button data-b="en">EN</button>
+  <button data-b="pt">PT</button>
+</nav>
+
+<div data-lang="es" class="on">
+  <h1>Duskroll: Dados y Mazmorras</h1>
+  <p class="lema">Soporte</p>
+  <h2>Contacto</h2>
+  <p>Escríbenos a <a href="mailto:alexis26dev@gmail.com">alexis26dev@gmail.com</a> e incluye el modelo de tu teléfono y qué pasó.</p>
+  <h2>Preguntas frecuentes</h2>
+  <p><b>El juego se cierra al abrir.</b> Entra en Ajustes → Calidad y elige «Ahorro».</p>
+  <p><b>¿Necesito internet?</b> No para jugar. La tabla de la mazmorra del día sí la necesita.</p>
+  <p><b>Quiero borrar mi nombre de la tabla.</b> Escríbenos al correo de arriba con el nombre que usas.</p>
+  <h2>Privacidad</h2>
+  <p><a href="/alexcity-privacidad/duskroll.html">Política de privacidad</a></p>
+</div>
+
+<div data-lang="en">
+  <h1>Duskroll: Dungeon of Dice</h1>
+  <p class="lema">Support</p>
+  <h2>Contact</h2>
+  <p>Write to <a href="mailto:alexis26dev@gmail.com">alexis26dev@gmail.com</a> and include your phone model and what happened.</p>
+  <h2>Frequently asked questions</h2>
+  <p><b>The game closes when it opens.</b> Go to Settings → Quality and choose the battery-saving option.</p>
+  <p><b>Do I need internet?</b> Not to play. The daily dungeon leaderboard does need it.</p>
+  <p><b>I want my name removed from the leaderboard.</b> Write to the address above with the name you use.</p>
+  <h2>Privacy</h2>
+  <p><a href="/alexcity-privacidad/duskroll.html">Privacy policy</a></p>
+</div>
+
+<div data-lang="pt">
+  <h1>Duskroll: Dados e Masmorras</h1>
+  <p class="lema">Suporte</p>
+  <h2>Contato</h2>
+  <p>Escreva para <a href="mailto:alexis26dev@gmail.com">alexis26dev@gmail.com</a> com o modelo do seu celular e o que aconteceu.</p>
+  <h2>Perguntas frequentes</h2>
+  <p><b>O jogo fecha ao abrir.</b> Vá em Ajustes → Qualidade e escolha a opção de economia.</p>
+  <p><b>Preciso de internet?</b> Não para jogar. A classificação da masmorra do dia precisa.</p>
+  <p><b>Quero remover meu nome da classificação.</b> Escreva para o endereço acima com o nome que você usa.</p>
+  <h2>Privacidade</h2>
+  <p><a href="/alexcity-privacidad/duskroll.html">Política de privacidade</a></p>
+</div>
+</div>
+<script>
+  document.querySelectorAll('nav button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-lang]').forEach(function (d) { d.classList.toggle('on', d.dataset.lang === b.dataset.b); });
+      document.querySelectorAll('nav button').forEach(function (x) { x.setAttribute('aria-current', x === b); });
+      document.documentElement.lang = b.dataset.b;
+    });
+  });
+</script>
+</body>
+</html>
